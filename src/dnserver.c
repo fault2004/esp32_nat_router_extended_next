@@ -298,7 +298,7 @@ void start_dns_server()
     {
         ESP_LOGI(TAG, "GET Linked IP NextDNS...");
         char url[100];
-        sprintf(url, "https://link-ip.nextdns.io/%s", &nextdns_id);
+        sprintf(url, "https://link-ip.nextdns.io/%s", nextdns_id);
         esp_http_client_config_t config = {
             .url = url,
             .method = HTTP_METHOD_HEAD,
