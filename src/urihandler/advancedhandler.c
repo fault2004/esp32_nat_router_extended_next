@@ -30,6 +30,8 @@ esp_err_t advanced_download_get_handler(httpd_req_t *req)
     char *defCB = "";
     char *cloudCB = "";
     char *adguardCB = "";
+    char *nextdnsCB = "";
+    char *nextdnsID = "";
     char *customCB = "";
     char *customDNSIP = "";
     char *defMacCB = "";
@@ -129,6 +131,11 @@ esp_err_t advanced_download_get_handler(httpd_req_t *req)
     else if (strcmp(customDNS, "94.140.14.14") == 0)
     {
         adguardCB = "checked";
+    }
+    else if (strcmp(customDNS, "45.90.30.135") == 0)
+    {
+        nextdnsCB = "checked";
+        get_config_param_str("nextdns_id", &nextdnsID);
     }
     else
     {

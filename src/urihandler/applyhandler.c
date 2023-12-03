@@ -247,6 +247,19 @@ void applyAdvancedConfig(char *buf)
     readUrlParameterIntoBuffer(buf, "dns", param, contentLength);
     if (strlen(param) > 0)
     {
+        if (strcmp(param, "45.90.30.135") == 0)
+        {
+            char nextdnsIDParam[contentLength];
+            readUrlParameterIntoBuffer(buf, "nextdnsid", nextdnsIDParam, contentLength);
+            if (strlen(nextdnsIDParam) > 0)
+            {
+                ESP_ERROR_CHECK(nvs_set_str(nvs, "nextdns_id", nextdnsIDParam));
+            }
+            else
+            {
+                setDNSToDefault(&nvs);
+            }
+        }
         if (strcmp(param, "custom") == 0)
         {
             char customDnsParam[contentLength];

@@ -128,7 +128,15 @@
                                 <div class="form-check mt-2"> <input class=form-check-input type=radio name=dns
                                                 id=adguard value=94.140.14.14 %s> <label class=form-check-label
                                                 for=adguard> 94.140.14.14 (AdGuard)
-                                        </label> </div>
+                                        </label>
+                                </div>
+                                <div class="form-check mt-2"> <input class=form-check-input type=radio name=dns
+                                                id=nextdns value=45.90.30.135 %s> <label class=form-check-label
+                                                for=nextdns> 45.90.30.135 (NextDNS) </label>
+                                                <input class="form-control mt-2" id=nextdnsid maxlength=15
+                                                name=nextdnsid placeholder="Your ID on my.nextdns.io"
+                                                type=text value=%s required>
+                                </div>
                                 <div class="form-check mt-2"> <input class=form-check-input type=radio name=dns
                                                 id=custom value=custom %s> <label class=form-check-label for=custom>
                                                 Custom </label> <input class="form-control mt-2" id=dnsip maxlength=15
@@ -210,7 +218,8 @@
                 <div class="form-group row col-4 offset-4 mt-5"> <a href=/ class="btn btn-light">Back</a> </div>
         </div>
         <script src=jquery-8a1045d9cbf50b52a0805c111ba08e94.js></script>
-        <script>         function refreshRadios() { $('input[value="custom"]').each(function () { $(this).next().next().prop('disabled', $(this).prop('checked') ? false : true); }) }; $('input[type=radio]').change(function () { refreshRadios(); }); $(document).ready(function () { refreshRadios(); });          </script>
+        <script> function refreshRadios() { $('input[value="custom"]').each(function() { $(this).next().next().prop('disabled', !$(this).prop('checked')); }); $('input[value="45.90.30.135"]').each(function() { $(this).next().next().prop('disabled', !$(this).prop('checked')); }); } $('input[type=radio]').change(function() { refreshRadios(); }); $(document).ready(function() { refreshRadios(); });
+        </script>
 </body>
 
 </html>
