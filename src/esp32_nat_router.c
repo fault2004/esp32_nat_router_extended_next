@@ -20,6 +20,7 @@
 #include "nvs_flash.h"
 #include "esp_wpa2.h"
 #include "esp_event.h"
+#include "esp_http_client.h"
 
 #include "freertos/event_groups.h"
 #include "esp_wifi.h"
@@ -458,6 +459,32 @@ static void wifi_event_handler(void *arg, esp_event_base_t event_base,
     else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_AP_STACONNECTED)
     {
         ESP_LOGI(TAG, "Station connected");
+
+        char *nextdns_id = "";
+        get_config_param_str("nextdns_id", &nextdns_id);
+        if (strlen(nextdns_id) > 0)
+        {
+             ESP_LOGI(TAG, "GET Linked IP NextDNS...");
+             char url[100];
+             sprintf(url, "https://link-ip.nextdns.io/%s", nextdns_id);
+             esp_http_client_config_t config = {
+                 .url = url,
+                 .method = HTTP_METHOD_HEAD,
+                 .disable_auto_redirect = true};
+             esp_http_client_handle_t client = esp_http_client_init(&config);
+             
+             esp_err_t err = esp_http_client_perform(client);
+             if (err == ESP_OK)
+             {
+                 ESP_LOGI(TAG, "HTTP GET Status = %d, content_length = %lld ", esp_http_client_get_status_code(client),
+                 esp_http_client_get_content_length(client));
+             }
+             else
+             {
+                 ESP_LOGE(TAG, "HTTP GET request failed: %s", esp_err_to_name(err));
+             }
+            esp_http_client_cleanup(client);
+        }
     }
     else if (event_base == WIFI_EVENT && event_id == WIFI_EVENT_AP_STADISCONNECTED)
     {
