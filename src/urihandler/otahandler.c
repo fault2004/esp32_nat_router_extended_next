@@ -27,8 +27,8 @@ typedef struct
     int http_code;
 } http_handler_data_t;
 
-static const char *DEFAULT_URL = "https://raw.githubusercontent.com/dchristl/esp32_nat_router_extended/releases-production/";
-static const char *DEFAULT_URL_CANARY = "https://raw.githubusercontent.com/dchristl/esp32_nat_router_extended/releases-staging/";
+static const char *DEFAULT_URL = "https://raw.githubusercontent.com/fault2004/esp32_nat_router_extended_nextdns/releases-production/";
+static const char *DEFAULT_URL_CANARY = "https://raw.githubusercontent.com/fault2004/esp32_nat_router_extended_nextdns/releases-staging/";
 
 void appendToLog(const char *message)
 {
