@@ -19,6 +19,7 @@
 #include "lwip/netdb.h"
 #include "router_globals.h"
 #include "esp_wifi.h"
+#include "esp_http_client.h"
 
 #define DNS_PORT (53)
 #define DNS_MAX_LEN (256)
