@@ -1,10 +1,8 @@
 # ESP32 NAT Router Extended with NextDNS.
 
-This is a firmware to use the ESP32 as WiFi NAT router. It can be used as
-- Simple range extender for an existing WiFi network
-- Setting up an additional WiFi network with different SSID/password for guests or IOT devices
+This is a fork of dchristl's ESP32 NAT Router Extended but with NextDNS feature.
 
-This is an extension of the great work of [martin-ger's ESP32 NAT Router-project](https://github.com/martin-ger/esp32_nat_router). I used his project as a starting point for learning microcontroller programming and extended it with some features for my use case. 
+Based on [martin-ger's ESP32 NAT Router-project](https://github.com/martin-ger/esp32_nat_router)
 
 ## Features / Usage scenarios
 - Extend range of WiFi network (Repeater)
@@ -18,7 +16,8 @@ This is an extension of the great work of [martin-ger's ESP32 NAT Router-project
 - Keep connection alive on networks with forced disconnect
 - Secure frontend by password or complete disabling
 - Show connected state and quality in UI
-- Disable the on board indicator LED 
+- Disable the on board indicator LED
+- NextDNS Support with automatic linking IP to your NextDNS account, see [here](https://github.com/fault2004/esp32_nat_router_extended_nextdns/blob/master/docs/nextdns.md)
 
 ## First Boot
 After first boot the ESP32 NAT Router will offer a WiFi network with an open AP and the ssid "ESP32_NAT_Router". Configuration can either be done via a simple web interface or via the serial console. 

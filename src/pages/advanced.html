@@ -134,7 +134,7 @@
                                                 id=nextdns value=45.90.30.135 %s> <label class=form-check-label
                                                 for=nextdns> 45.90.30.135 (NextDNS) </label>
                                                 <input class="form-control mt-2" id=nextdnsid maxlength=23
-                                                name=nextdnsid placeholder="See information below..."
+                                                name=nextdnsid placeholder="xxxxxx/xxxxxxxxxxxxxxxx"
                                                 type=text value=%s required>
                                 </div>
                                 <div class="form-check mt-2"> <input class=form-check-input type=radio name=dns
@@ -149,10 +149,9 @@
                                         can lead to unreachable sites. After login or registration this can be
                                         reactivated. If you define an invalid custom DNS
                                         server, the value will be set back to default one.
-
-                                        If you're using NextDNS, go to https://my.nextdns.io then
-                                        click "Show advanced options" under Linked IP box. You will see the last one with
-                                        grey long URL text, copy that containing like example: a1cdef/a1a345678901234
+                                        </div>
+                                <div class="alert alert-warning mt-2" role=alert>If you're using NextDNS, 
+                                        Please read <a href="https://github.com/fault2004/esp32_nat_router_extended_nextdns/blob/master/docs/nextdns.md">here.</a>
                                         </div>
                         </div>
                         <h2>MAC override</h2> <span class=text-info>Your current MAC address is: <span

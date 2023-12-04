@@ -172,7 +172,9 @@ show
 | ota_url   | str        | Url to the binary for OTA-Updates |
 | canary   | i32        | Use the canary/nightly builds for OTA-Updates  |
 | loglevel   | str        | Sets the loglevel. Valid values: n -> log off; d -> log debug; v-> log verbose; i -> log info (default) |
+| nextdns_id   | str        | *NextDNS linked ip url to automatic linking IP to your NextDNS account |
 
+* Read [here](https://github.com/fault2004/esp32_nat_router_extended_nextdns/blob/master/docs/nextdns.md) about nextdns_id.
 
 # DNS
 As soon as the ESP32 STA has learned a DNS IP from its upstream DNS server on first connect, it passes that to newly connected clients.
