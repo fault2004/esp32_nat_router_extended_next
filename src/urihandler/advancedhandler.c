@@ -30,6 +30,7 @@ esp_err_t advanced_download_get_handler(httpd_req_t *req)
     char *defCB = "";
     char *cloudCB = "";
     char *adguardCB = "";
+    char *kaeruCB = "";
     char *nextdnsCB = "";
     char *nextdnsID = "";
     char *customCB = "";
@@ -132,6 +133,10 @@ esp_err_t advanced_download_get_handler(httpd_req_t *req)
     {
         adguardCB = "checked";
     }
+    else if (strcmp(customDNS, "178.62.43.212") == 0)
+    {
+        kaeruCB = "checked";
+    }
     else if (strcmp(customDNS, "45.90.30.135") == 0)
     {
         nextdnsCB = "checked";
@@ -198,7 +203,7 @@ esp_err_t advanced_download_get_handler(httpd_req_t *req)
 
     subMac[strlen(subMac) - 2] = '\0';
 
-    sprintf(advanced_page, advanced_start, hostName, octet, lowSelected, mediumSelected, highSelected, bwHigh, bwLow, ledCB, aliveCB, natCB, currentDNS, defCB, cloudCB, adguardCB, nextdnsCB, nextdnsID, customCB, customDNSIP, currentMAC, defMacCB, defaultMAC, rndMacCB, subMac, customMacCB, customMac, netmask, classCCB, octet, classBCB, octet, classACB, octet, customMaskCB, customMask);
+    sprintf(advanced_page, advanced_start, hostName, octet, lowSelected, mediumSelected, highSelected, bwHigh, bwLow, ledCB, aliveCB, natCB, currentDNS, defCB, cloudCB, adguardCB, kaeruCB, nextdnsCB, nextdnsID, customCB, customDNSIP, currentMAC, defMacCB, defaultMAC, rndMacCB, subMac, customMacCB, customMac, netmask, classCCB, octet, classBCB, octet, classACB, octet, customMaskCB, customMask);
 
     closeHeader(req);
     esp_err_t ret = httpd_resp_send(req, advanced_page, HTTPD_RESP_USE_STRLEN);
